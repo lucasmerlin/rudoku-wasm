@@ -95,6 +95,8 @@ const Home: NextPage = () => {
         Result:
         <SudokuField field={solved}/>
 
+        {!solved && <div>Solving...</div>}
+
     </>)
 }
 
