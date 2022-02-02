@@ -69,7 +69,9 @@ const SudokuField = ({field}: { field?: Field }) => {
 const Home: NextPage = () => {
 
     const [solved, setSolved] = useState<Field | undefined>(() => arrayToField(solveSudoku(fieldToArray(easySudoku))))
-    const [solving, setSolving] = useState<Field>(easySudoku)
+    const [solving, setSolving] = useState<Field>(easySudoku);
+
+    const [customSudoku, setCustomSudoku] = useState<string>(easySudoku.map(arr => arr.join(",")).join(",\n"));
 
     const solve = (field: Field) => {
         setSolving(field)
@@ -96,6 +98,14 @@ const Home: NextPage = () => {
         <SudokuField field={solved}/>
 
         {!solved && <div>Solving...</div>}
+
+        <h2>Custom Sudoku</h2>
+        <textarea value={customSudoku} onChange={e => setCustomSudoku(e.target.value)} rows={9}/><br/>
+        <button onClick={() => {
+            const field = arrayToField(new Uint8Array(customSudoku.split(",").map(str => parseInt(str, 10))))
+            solve(field)
+        }}>Solve</button>
+
 
     </>)
 }
