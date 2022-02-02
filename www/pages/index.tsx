@@ -2,7 +2,7 @@ import type {NextPage} from 'next'
 import {solveSudoku} from "rudoku-wasm";
 import {useState} from "react";
 import {arrayToField, Field, fieldToArray} from "../lib/utils";
-import {value, row} from "../styles/index.module.css"
+import styles from "../styles/index.module.css"
 
 
 const easySudoku: Field = [
@@ -56,8 +56,8 @@ let extremelyHard: Field = [
 const SudokuField = ({field}: { field?: Field }) => {
     return <div>
         {field && <div>
-            {field.map((arr, i) => <div key={i} className={row}>
-                {arr.map((cell, j) => <div key={j} className={`${value} c-${j}`}>
+            {field.map((arr, i) => <div key={i} className={styles.row}>
+                {arr.map((cell, j) => <div key={j} className={`${styles.value} c-${j}`}>
                     {cell}
                 </div>)}
             </div>)}
