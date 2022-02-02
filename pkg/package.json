@@ -1,0 +1,15 @@
+{
+  "name": "rudoku-wasm",
+  "collaborators": [
+    "Lucas Meurer <lucasmeurer96@gmail.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "rudoku_wasm_bg.wasm",
+    "rudoku_wasm.js",
+    "rudoku_wasm.d.ts"
+  ],
+  "module": "rudoku_wasm.js",
+  "types": "rudoku_wasm.d.ts",
+  "sideEffects": false
+}
