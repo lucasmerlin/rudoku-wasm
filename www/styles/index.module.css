@@ -1,8 +1,10 @@
-
-
 .value {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid darkgray;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 32px;
 }
 
 .row {
@@ -10,3 +12,62 @@
     flex-direction: row;
 }
 
+.pageWrapper {
+    display: flex;
+    flex-flow: column;
+    padding: 0 320px;
+    align-items: center;
+}
+
+.fieldWrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.h1 {
+    width: 100%;
+    font-size: 48px;
+    padding: 32px 0;
+    color: white;
+    text-align: center;
+    background-color: #555566;
+    background-image: linear-gradient(30deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
+    linear-gradient(150deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
+    linear-gradient(30deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
+    linear-gradient(150deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
+    linear-gradient(60deg, #9999AA 25%, transparent 25.5%, transparent 75%, #9999AA 75%, #9999AA),
+    linear-gradient(60deg, #9999AA 25%, transparent 25.5%, transparent 75%, #9999AA 75%, #9999AA);
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+.button {
+    font-size: 16px;
+    padding: 8px;
+    border: none;
+    background: #9999AA;
+    cursor: pointer;
+    color: white;
+}
+
+.button:hover{
+    background: #444455;
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sudokuFieldAndTitleWrapper {
+    display: flex;
+    flex-flow: column;
+}
+
+.textarea{
+    font-size: 16px;
+}
