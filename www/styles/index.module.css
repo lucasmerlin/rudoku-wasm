@@ -1,8 +1,10 @@
-
-
 .value {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
+    border: .5px solid darkgray;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 32px;
 }
 
 .row {
@@ -10,3 +12,99 @@
     flex-direction: row;
 }
 
+.pageWrapper {
+    display: flex;
+    flex-flow: column;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.fieldWrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.h1 {
+    width: 100%;
+    font-size: 48px;
+    padding: 32px 0;
+    text-align: center;
+    text-shadow: -3px 0 0 #02FFE1, 3px 0 0 #FF69B4, 5px 10px 50px #FF69B480, -5px -10px 50px #02FFE180;
+}
+
+.button {
+    width: fit-content;
+    font-size: 16px;
+    padding: 2px 8px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: lowercase;
+    background: none;
+    transition: .5s;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-top: none;
+    border-bottom: none;
+    margin: 4px 0;
+}
+
+.button:hover{
+    text-shadow: -1px 0 0 #02FFE1, 1px 0 0 #FF69B4;
+    color: white;
+    font-style: italic;
+    border-left: 2px solid #02FFE1;
+    border-right: 2px solid #FF69B4 ;
+
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sudokuFieldAndTitleWrapper {
+    display: flex;
+    flex-flow: column;
+}
+
+.textarea{
+    font-size: 16px;
+    display: block;
+    color: white;
+    background: black;
+}
+
+.sudokuField{
+    border-top: 1px solid #02FFE1;
+    border-left: 1px solid #02FFE1;
+    border-right: 1px solid #FF69B4;
+    border-bottom: 1px solid #FF69B4;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .pageWrapper {padding: 0 10px;}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .pageWrapper {padding: 0 50px;}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .pageWrapper {padding: 0 100px;}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .pageWrapper {padding: 0 150px;}
+}
+
+@media only screen and (min-width: 1400px) {
+    .pageWrapper {padding: 0 200px;}
+}
