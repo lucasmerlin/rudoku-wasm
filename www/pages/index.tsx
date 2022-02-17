@@ -53,13 +53,13 @@ let extremelyHard: Field = [
 ];
 
 const SudokuField = ({ field }: { field?: Field }) => {
-    return <div>
+    return <div className={styles.sudokuField}>
         {field && <div>
             {field.map((arr, i) => <div key={i}
                                         className={styles.row}>
                 {arr.map((cell, j) => <div key={j}
                                            className={styles.value}>
-                    {((cell == 0) ? " " : cell)}
+                    {((cell == 0) ? ' ' : cell)}
                 </div>)}
             </div>)}
         </div>}
@@ -84,6 +84,7 @@ const Home: NextPage = () => {
     };
 
     return (<>
+
         <h1 className={styles.h1}>Rudoku</h1>
         <div className={styles.pageWrapper}>
             <div className={styles.buttonWrapper}>
@@ -94,10 +95,8 @@ const Home: NextPage = () => {
                 <button className={styles.button}
                         onClick={() => solve(veryHard)}>Solve very hard Sudoku</button>
                 <button className={styles.button}
-                        onClick={() => solve(extremelyHard)}>Solve extremely hard Sudoku (Slow!)</button>
+                        onClick={() => solve(extremelyHard)}>Solve X-TREME Sudoku (Slow!)</button>
             </div>
-
-            <br />
 
             <div className={styles.fieldWrapper}>
                 <div className={styles.sudokuFieldAndTitleWrapper}>
@@ -105,35 +104,38 @@ const Home: NextPage = () => {
                     <SudokuField field={solving} />
                 </div>
 
-                {!solved &&
-                <div>
-                    <div>Solving...</div>
+                <div className={styles.sudokuFieldAndTitleWrapper}>
+                    <h2>Custom (optional)</h2>
+                    <div className={styles.sudokuField}
+                         style={{ height: '290px', width: '290px', display: 'flex', flexFlow: 'column' }}>
+                        <textarea value={customSudoku}
+                                  onChange={e => setCustomSudoku(e.target.value)}
+                                  rows={9}
+                                  className={styles.textarea} />
+
+                        <button className={styles.button}
+                                style={{ marginTop: '32px', alignSelf: 'center' }}
+                                onClick={() => {
+                                    const field = arrayToField(new Uint8Array(customSudoku.split(',').map(str => parseInt(str, 10))));
+                                    solve(field);
+                                }}>Solve
+                        </button>
+                    </div>
                 </div>
-                }
 
                 <div className={styles.sudokuFieldAndTitleWrapper}>
                     <h2>Result:</h2>
                     <SudokuField field={solved} />
                 </div>
-
             </div>
 
-
-            <h2>Custom Sudoku</h2>
-            <textarea value={customSudoku}
-                      onChange={e => setCustomSudoku(e.target.value)}
-                      rows={9}
-                      className={styles.textarea}/>
-            <br />
-            <button className={styles.button}
-                    onClick={() => {
-                        const field = arrayToField(new Uint8Array(customSudoku.split(',').map(str => parseInt(str, 10))));
-                        solve(field);
-                    }}>Solve
-            </button>
-
+            {!solved &&
+            <div style={{ marginTop: '32px' }}>
+                <h2>Solving...</h2>
+            </div>
+            }
         </div>
-        </>);
+    </>);
 };
 
 export default Home;

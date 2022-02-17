@@ -1,7 +1,7 @@
 .value {
     width: 32px;
     height: 32px;
-    border: 1px solid darkgray;
+    border: .5px solid darkgray;
     text-align: center;
     vertical-align: middle;
     line-height: 32px;
@@ -15,14 +15,14 @@
 .pageWrapper {
     display: flex;
     flex-flow: column;
-    padding: 0 320px;
+    padding: 0 10px;
     align-items: center;
 }
 
 .fieldWrapper {
     width: 100%;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 
@@ -30,35 +30,38 @@
     width: 100%;
     font-size: 48px;
     padding: 32px 0;
-    color: white;
     text-align: center;
-    background-color: #555566;
-    background-image: linear-gradient(30deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
-    linear-gradient(150deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
-    linear-gradient(30deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
-    linear-gradient(150deg, #444455 12%, transparent 12.5%, transparent 87%, #444455 87.5%, #444455),
-    linear-gradient(60deg, #9999AA 25%, transparent 25.5%, transparent 75%, #9999AA 75%, #9999AA),
-    linear-gradient(60deg, #9999AA 25%, transparent 25.5%, transparent 75%, #9999AA 75%, #9999AA);
-    background-size: 80px 140px;
-    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    text-shadow: -3px 0 0 #02FFE1, 3px 0 0 #FF69B4, 5px 10px 50px #FF69B480, -5px -10px 50px #02FFE180;
 }
 
 .button {
+    width: fit-content;
     font-size: 16px;
-    padding: 8px;
-    border: none;
-    background: #9999AA;
+    padding: 2px 8px;
     cursor: pointer;
-    color: white;
+    color: #fff;
+    text-transform: lowercase;
+    background: none;
+    transition: .5s;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-top: none;
+    border-bottom: none;
+    margin: 4px 0;
 }
 
 .button:hover{
-    background: #444455;
+    text-shadow: -1px 0 0 #02FFE1, 1px 0 0 #FF69B4;
+    color: white;
+    font-style: italic;
+    border-left: 2px solid #02FFE1;
+    border-right: 2px solid #FF69B4 ;
+
 }
 
 .buttonWrapper {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     width: 100%;
 }
@@ -70,4 +73,38 @@
 
 .textarea{
     font-size: 16px;
+    display: block;
+    color: white;
+    background: black;
+}
+
+.sudokuField{
+    border-top: 1px solid #02FFE1;
+    border-left: 1px solid #02FFE1;
+    border-right: 1px solid #FF69B4;
+    border-bottom: 1px solid #FF69B4;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .pageWrapper {padding: 0 10px;}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .pageWrapper {padding: 0 50px;}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .pageWrapper {padding: 0 100px;}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .pageWrapper {padding: 0 150px;}
+}
+
+@media only screen and (min-width: 1400px) {
+    .pageWrapper {padding: 0 200px;}
 }
